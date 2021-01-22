@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ChatApp_Ondoy.ProfilePage"
+             Title="ProfilePage"
+             x:Name="profilePage"
+             xmlns:local="clr-namespace:ChatApp_Ondoy">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                 
+               
+                </Grid.ColumnDefinitions>
+                <Frame CornerRadius="350" Grid.Row="0" Grid.Column="0"  BackgroundColor="#1C86EE" Margin="70,60,70,10" Padding="7" IsClippedToBounds="True">
+                <Frame CornerRadius="340" BackgroundColor="#60affe" Padding="7" IsClippedToBounds="True">
+                    <Frame CornerRadius="330" BackgroundColor="#60affe" Padding="7" IsClippedToBounds="True">
+                        <Image Source="prof" Scale="1.4" Aspect="AspectFill" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Frame>
+                </Frame>
+            </Frame>
+            </Grid>
+            <StackLayout Grid.Row="1" Grid.ColumnSpan="2">
+            <Label x:Name="NameLabel" BindingContext="{ x:Reference Name=profilePage }" Text="{Binding Name}" FontSize="Large" HorizontalOptions="Center" FontAttributes="Bold"/>
+
+            <Label  x:Name="EmailLabel" BindingContext="{ x:Reference Name=profilePage }" Text="{Binding Email}" FontSize="Medium" HorizontalOptions="Center" FontAttributes="Bold"/>
+            <local:CustomButton Text="Sign out" CornerRadius="8" Margin="8" Clicked="signout_click"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

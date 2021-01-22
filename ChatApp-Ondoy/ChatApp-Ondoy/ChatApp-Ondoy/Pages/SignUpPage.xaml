@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ChatApp_Ondoy.SignUpPage"
+             xmlns:local="clr-namespace:ChatApp_Ondoy"
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="CustomEntryStyle" TargetType="local:CustomEntry">
+                <Setter Property="Text" Value=""/>
+                <Setter Property="IsCurvedCornersEnabled" Value="True"/>
+                <Setter Property="BorderColor" Value="Black"/>
+                <Setter Property="BorderWidth" Value="5"/>
+                <Setter Property="ReturnType" Value="Next"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="0" Orientation="Vertical" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" >
+            <Frame BackgroundColor="#1976d2" HeightRequest="{Binding Converter={StaticResource scale}, ConverterParameter='height=320'}" CornerRadius="0">
+                <Image Source="ondoy.png" />
+            </Frame>
+
+        </StackLayout>
+        <StackLayout Padding="10,1,10,10" Grid.Row="1" Orientation="Vertical" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <local:CustomEntry  x:Name="user" Grid.Row="0" TextChanged="changetxt" Placeholder="Username" Keyboard="Default" Style="{StaticResource CustomEntryStyle}"/>
+                <local:CustomEntry  x:Name="email" Grid.Row="1" TextChanged="changetxt" Placeholder="Email" Keyboard="Email" Style="{StaticResource CustomEntryStyle}"/>
+               
+                    <local:CustomEntry  x:Name="pass" Grid.Row="2" TextChanged="changetxt" Placeholder="Password" IsPassword="True" Keyboard="Default" Style="{StaticResource CustomEntryStyle}"/>
+                    <local:CustomButton x:Name="showpass"  Grid.Row="2" Clicked="showpassw"  Text="Show" WidthRequest="50" HeightRequest="5" CornerRadius="5" FontSize="Default" Margin="0,5,5,5" HorizontalOptions="End"/>
+             
+                
+                    <local:CustomEntry  x:Name="pass2"  Grid.Row="3" TextChanged="changetxt" Placeholder="Confirm Password" IsPassword="True" Keyboard="Default" ReturnType="Done" Style="{StaticResource CustomEntryStyle}"/>
+                    <local:CustomButton x:Name="showpass2" Grid.Row="3" Clicked="showpassw"  Text="Show" WidthRequest="50" HeightRequest="5" CornerRadius="5" FontSize="Default" Margin="0,5,5,5" HorizontalOptions="End"/>
+
+                <local:CustomButton Clicked="signup_click" Grid.Row="4" Text="Sign up" CornerRadius="8" BackgroundColor="LightGreen"/>
+                <local:CustomButton Clicked="backsignin" Grid.Row="5" Text="Sign in to your account" CornerRadius="8"/>
+            </Grid>
+            <Grid Margin="0,9,0,0">
+                    <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Frame CornerRadius="7" Padding="0" IsClippedToBounds="True" Grid.Row="0" Grid.Column="0">
+                        <Image Source="GoogleSignUp" Aspect="Fill" VerticalOptions="Center" HorizontalOptions="Center"/>
+                  
+                    </Frame>
+                    <Frame CornerRadius="7"  Padding="0" IsClippedToBounds="True" Grid.Row="0" Grid.Column="1">
+                        <Image Source="FacebookSignUp" Aspect="Fill"   VerticalOptions="Center" HorizontalOptions="Center"/>
+                    
+                    </Frame>
+                  
+                </Grid>
+            
+        </StackLayout>
+    
+        <local:Loading Grid.Row="0" Grid.RowSpan="2" x:Name="loading" 
+                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="False"/>
+    </Grid>
+</ContentPage>
